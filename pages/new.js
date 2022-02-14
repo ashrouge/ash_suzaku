@@ -1,5 +1,4 @@
-import Link from 'next/link';
-import { useState, useEffect, createContext } from 'react';
+import { useState, useEffect } from 'react';
 import fetch from 'isomorphic-unfetch';
 import { Button, Form, Loader } from 'semantic-ui-react';
 import { useRouter } from 'next/router';
@@ -23,7 +22,7 @@ const NewNote = () => {
 
     const createNote = async () => {
         try {
-            const res = await fetch('http://localhost:3000/api/notes', {
+            const res = await fetch('https://stok-build.herokuapp.com/api/notes', {
                 method: 'POST',
                 headers: {
                     "Accept": "application/json",
