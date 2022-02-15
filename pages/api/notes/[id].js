@@ -51,7 +51,6 @@ export default async (req, res) => {
             break;
         case 'DELETE':
             try {
-                const data = (req.body);
                 const deletedNote = await Note.deleteOne({ _id: id });
 
                 if (!deletedNote) {

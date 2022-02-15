@@ -24,7 +24,12 @@ const Note = ({ note }) => {
         const noteId = router.query.id;
         try {
             const deleted = await fetch(`${process.env.BASE_URL}/api/notes/${noteId}`, {
-                method: "Delete"
+                method: "DELETE",
+                headers: {
+                    "Access-Control-Allow-Origin": "*",
+                    "Accept": "application/json",
+                    "Content-Type": "application/json"
+                },
             });
 
             router.push("/");
