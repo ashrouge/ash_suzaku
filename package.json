@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "cors": "^2.8.5",
     "daisyui": "^1.25.4",
     "isomorphic-unfetch": "^3.1.0",
     "mongoose": "^6.2.1",

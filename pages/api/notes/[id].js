@@ -1,9 +1,12 @@
 import connectDB from '../../../utils/dbConnect';
 import Note from '../../../models/Note';
+import cors from '../cors';
+
 
 connectDB();
 
 export default async (req, res) => {
+    cors(req, res);
     const {
         query: { id },
         method
