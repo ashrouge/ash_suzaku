@@ -84,7 +84,7 @@ const Index = ({ notes }) => {
 }
 
 Index.getInitialProps = async () => {
-  const res = await fetch('https://stok-build.herokuapp.com/api/notes');
+  const res = await fetch(`${process.env.BASE_URL}/api/notes`);
   const { data } = await res.json();
 
   return { notes: { data } }

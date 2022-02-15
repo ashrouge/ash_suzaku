@@ -22,7 +22,7 @@ const NewNote = () => {
 
     const createNote = async () => {
         try {
-            const res = await fetch('https://stok-build.herokuapp.com/api/notes', {
+            const res = await fetch(`${process.env.BASE_URL}/api/notes`, {
                 method: 'POST',
                 headers: {
                     "Access-Control-Allow-Origin": "*",

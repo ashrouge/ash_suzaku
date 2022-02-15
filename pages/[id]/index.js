@@ -23,7 +23,7 @@ const Note = ({ note }) => {
     const deleteNote = async () => {
         const noteId = router.query.id;
         try {
-            const deleted = await fetch(`https://stok-build.herokuapp.com/api/notes/${noteId}`, {
+            const deleted = await fetch(`${process.env.BASE_URL}/api/notes/${noteId}`, {
                 method: "Delete"
             });
 
@@ -61,7 +61,7 @@ const Note = ({ note }) => {
 }
 
 Note.getInitialProps = async ({ query: { id } }) => {
-    const res = await fetch(`https://stok-build.herokuapp.com/api/notes/${id}`);
+    const res = await fetch(`${process.env.BASE_URL}/api/notes/${id}`);
     const { data } = await res.json();
 
     return { note: data }

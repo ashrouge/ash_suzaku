@@ -25,7 +25,7 @@ const EditNote = ({ note }) => {
 
     const updateNote = async () => {
         try {
-            const res = await fetch(`https://stok-build.herokuapp.com/api/notes/${router.query.id}`, {
+            const res = await fetch(`${process.env.BASE_URL}/api/notes/${router.query.id}`, {
                 method: 'PUT',
                 headers: {
                     "Access-Control-Allow-Origin": "*",
@@ -126,7 +126,7 @@ const EditNote = ({ note }) => {
 }
 
 EditNote.getInitialProps = async ({ query: { id } }) => {
-    const res = await fetch(`https://stok-build.herokuapp.com/api/notes/${id}`);
+    const res = await fetch(`${process.env.BASE_URL}/api/notes/${id}`);
     const { data } = await res.json();
 
     return { note: data }
