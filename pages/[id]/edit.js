@@ -28,6 +28,7 @@ const EditNote = ({ note }) => {
             const res = await fetch(`https://stok-build.herokuapp.com/api/notes/${router.query.id}`, {
                 method: 'PUT',
                 headers: {
+                    "Access-Control-Allow-Origin": "*",
                     "Accept": "application/json",
                     "Content-Type": "application/json"
                 },

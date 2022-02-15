@@ -25,6 +25,7 @@ const NewNote = () => {
             const res = await fetch('https://stok-build.herokuapp.com/api/notes', {
                 method: 'POST',
                 headers: {
+                    "Access-Control-Allow-Origin": "*",
                     "Accept": "application/json",
                     "Content-Type": "application/json"
                 },
