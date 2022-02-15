@@ -5,6 +5,14 @@ import cors from '../cors';
 
 connectDB();
 
+const headers = {
+    "Access-Control-Allow-Origin": "*",
+    "Access-Control-Allow-Methods": "OPTIONS, POST, GET,DELETE",
+    "Access-Control-Max-Age": 2592000,
+    "Access-Control-Allow-Headers":
+        "Access-Control-Allow-Origin,Origin, X-Requested-With, Content-Type, Accept",
+};
+
 export default async (req, res) => {
     const {
         query: { id },
@@ -55,6 +63,15 @@ export default async (req, res) => {
                 res.status(400).json({ success: false })
             }
             break;
+        case 'OPTIONS':
+            try {
+                res.writeHead(200, headers);
+                res.end();
+                return;
+            } catch (error) {
+                console.log(error);
+                res.status(400).json({ success: false });
+            }
         default:
             res.status(400).json({ success: false })
             break;
