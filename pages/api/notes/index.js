@@ -6,7 +6,7 @@ connectDB();
 
 const headers = {
     "Access-Control-Allow-Origin": "*",
-    "Access-Control-Allow-Methods": "OPTIONS, POST, GET,DELETE",
+    "Access-Control-Allow-Methods": "OPTIONS, POST, GET, PUT, DELETE",
     "Access-Control-Max-Age": 2592000,
     "Access-Control-Allow-Headers":
         "Access-Control-Allow-Origin,Origin, X-Requested-With, Content-Type, Accept",
