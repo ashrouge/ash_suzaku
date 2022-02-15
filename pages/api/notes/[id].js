@@ -6,7 +6,6 @@ import cors from '../cors';
 connectDB();
 
 export default async (req, res) => {
-    cors(req, res);
     const {
         query: { id },
         method
@@ -16,11 +15,10 @@ export default async (req, res) => {
         case 'GET':
             try {
                 const note = await Note.findById(id);
-
                 if (!note) {
                     return res.status(400).json({ success: false });
                 }
-
+                cors(res);
                 res.status(200).json({ success: true, data: note });
             } catch (error) {
                 res.status(400).json({ success: false });
@@ -37,7 +35,7 @@ export default async (req, res) => {
                 if (!note) {
                     return res.status(400).json({ success: false });
                 }
-
+                cors(res);
                 res.status(200).json({ success: true, data: note });
             } catch (error) {
                 res.status(400).json({ success: false });

@@ -1,13 +1,13 @@
-import Cors from 'cors'
-import initMiddleware from '../../lib/middleware'
 
-// Initialize the cors middleware
-const cors = initMiddleware(
-    // You can read more about the available options here: https://github.com/expressjs/cors#configuration-options
-    Cors({
-        // Only allow requests with GET, POST and OPTIONS
-        methods: ['GET', 'POST', 'PUT', 'OPTIONS', 'DELETE'],
-    })
-)
+const setHeader = (res) => {
+    res.statusCode = 200;
+    res.setHeader("Content-Type", "application/json");
+    res.setHeader("Access-Control-Allow-Origin", "*");
+    res.setHeader(
+        "Access-Control-Allow-Headers",
+        "Origin, X-Requested-With, Content-Type, Accept"
+    );
+    res.setHeader("Access-Control-Allow-Methods", "DELETE,GET, POST, PUT, PATCH");
+};
 
-export default cors;
+export default setHeader;
